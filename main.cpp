@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include "Converter.h"
 
 /*
@@ -15,17 +14,24 @@ Choose which direction to add zeroes, for example:
     Add to the left:
 
     ConverterOBJ.setDir('L'); 0b1 will now become 0b0000000000001....
+
+    The direction is set to RIGHT by default.
+
+    ERROR CODE 1: 32-bit NUMBER FED INTO 16-BIT FUNCTION
+
+    std::runtime_error will be thrown when any direction other than
+    left or right will be inputted. 
 */
 
 
 int main()
 {
 //------------------------DEFINE THE BINARY NUMBER HERE
-    Converter convert( "1" );
+    Converter convert( "11101" );
 //----------------------------------------------------
 
 //------------------------SET DIRECTION TO ADD ZEROES
-    convert.setDir('R');
+    convert.setDir('r');
 
 
 
@@ -46,13 +52,3 @@ int main()
     std::cout << "Hexa 32-bit: ";
     convert.decTOhex(num32);
 }
-
-
-
-
-
-
-
-
-
-
