@@ -15,6 +15,12 @@ int Converter::binTOdec16()
         {
             if (binary[i] != ' ')
             {
+                if (j >= storage.size())
+                {
+                    std::cout << "Number not " << storage.size()
+                        << " bits, error.";
+                    return 1;
+                }
                 storage[j++] = binary[i] - '0';// convert char to int
             }
         }
@@ -36,6 +42,12 @@ int Converter::binTOdec16()
         {
             if (binary[i] != ' ')
             {
+                if (j >= storage.size())
+                {
+                    std::cout << "[Number not " << storage.size()
+                        << " bits, error] ";
+                    return 1;
+                }
                 storage[j--] = binary[i] - '0';// convert char to int
             }
         }
@@ -64,6 +76,12 @@ int64_t Converter::binTOdec32()
         {
             if (binary[i] != ' ')
             {
+                if (j >= storage.size())
+                {
+                    std::cout << "[Number not " << storage.size()
+                        << " bits, error] ";
+                    return 1;
+                }
                 storage[j++] = binary[i] - '0';// convert char to int
             }
         }
@@ -85,6 +103,12 @@ int64_t Converter::binTOdec32()
        {
            if (binary[i] != ' ')
            {
+               if (j >= storage.size())
+               {
+                   std::cout << "[Number not " << storage.size()
+                       << " bits, error] ";
+                   return 1;
+               }
                storage[j--] = binary[i] - '0';// convert char to int
            }
        }
