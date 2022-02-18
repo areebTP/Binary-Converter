@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <array>
+#include <stdexcept>
 #include "Converter.h"
 
 int Converter::binTOdec16()
@@ -45,7 +46,7 @@ int Converter::binTOdec16()
                 if (j >= storage.size())
                 {
                     std::cout << "[Number not " << storage.size()
-                        << " bits, error] ";
+                        << " bits, error code] ";
                     return 1;
                 }
                 storage[j--] = binary[i] - '0';// convert char to int
@@ -62,6 +63,8 @@ int Converter::binTOdec16()
         return decimal;
 
     }
+
+    throw std::runtime_error{ "Incorrect direction not L or R"};
 }
 
 int64_t Converter::binTOdec32()
@@ -123,6 +126,8 @@ int64_t Converter::binTOdec32()
        return decimal;
 
     }
+
+    throw std::runtime_error{ "Incorrect direction not L or R"};
 }
 
 void Converter::decTOhex(int64_t dec_num)
