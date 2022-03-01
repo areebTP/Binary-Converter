@@ -13,6 +13,7 @@ public:
 	int64_t binTOdec32();
 	
 	void decTOhex(int64_t);
+	void hexTObin(const std::string&);
 	void setDir(char dir) { direction = dir; }
 
 private:
