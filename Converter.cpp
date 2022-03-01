@@ -1,4 +1,7 @@
 #include <iostream>
+#include <sstream>
+#include <bitset>
+#include <string>
 #include <cmath>
 #include <array>
 #include <stdexcept>
@@ -143,4 +146,14 @@ void Converter::decTOhex(int64_t dec_num)
         dec_num = dec_num / 16;
     }
     std::cout << hexdec_num << "\n";
+}
+
+void Converter::hexTObin(const std::string& s)
+{
+    std::stringstream ss;
+    ss << std::hex << s;
+    unsigned n;
+    ss >> n;
+    std::bitset<32> b(n);
+    std::cout << "Binary value of:'"<<s<<"' is:\n" << b.to_string() << std::endl;
 }
