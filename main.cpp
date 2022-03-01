@@ -20,18 +20,26 @@ Choose which direction to add zeroes, for example:
     ERROR CODE 1: 32-bit NUMBER FED INTO 16-BIT FUNCTION
 
     std::runtime_error will be thrown when any direction other than
-    left or right will be inputted. 
+    left or right will be inputted.
+
+    HEX TO BINARY CONVERTER:
+
+    ConverterOBJ.hexTObin("0xFF0");
+
+    argument 1 : std::string, enter "0x[hex]", this is defaulted to 32-bit
+
 */
 
 
 int main()
 {
 //------------------------DEFINE THE BINARY NUMBER HERE
-    Converter convert( "11101" );
-//----------------------------------------------------
-
-//------------------------SET DIRECTION TO ADD ZEROES
+    std::string bin{ "11101" };
+    Converter convert(bin);
     convert.setDir('r');
+//----------------------------------------HEX TO BINARY
+    convert.hexTObin("0x60");
+
 
 
 
@@ -43,8 +51,9 @@ int main()
     int num16{ convert.binTOdec16() };
     int64_t num32{ convert.binTOdec32() };
 
-    std::cout << "Decimal 16-bit: " << num16 << "\n"
-        << "Decimal 32-bit: " << num32 << "\n";
+    std::cout << "Converting '" << bin << "' to Decimal and Hex:\n"
+    << "Decimal 16-bit: " << num16 << "\n"
+    << "Decimal 32-bit: " << num32 << "\n";
 
     std::cout << "Hexa 16-bit: ";
 
